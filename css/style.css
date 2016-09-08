@@ -1,0 +1,91 @@
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  color: #34495e; 
+}
+
+.byt header {
+  margin: 40px 0;
+  font-size: 44px;
+  font-weight: bold;
+  color: #D91E18; 
+}
+a {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  border-radius: 26%;
+  color: #aaa;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 21px; 
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+.screen{
+  background-color: #4ECDC4;
+  color: #fff;
+  padding: 5px;
+  border: 1px solid #26A65B;
+}
+.byt table>tbody>tr>td{
+  border-top:transparent;
+}
+.byt table .available, .available {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #4ECDC4;
+  cursor: pointer; 
+}
+.byt table .available:hover {
+  background: #4ECDC4;
+  color: white; 
+}
+
+.byt table .selected, .selected{
+  background: #4ECDC4;
+  color: white; 
+}
+.byt table .booked, .booked{
+  background: #D91E18;
+  color: #fff;
+  box-shadow: 0;
+  border: 0;
+  cursor: default; }
+
+.byt .seat-row {
+  display: flex; 
+}
+.byt .seat-row .item-seat {
+  margin-left: 30px; 
+}
+
+.seat-counter tbody tr td .item-seat:nth-child(5){
+  margin-right: 100px;
+}
+.number{
+  margin-left: 6px;
+}
+.item-seat:first-child .number{
+  margin-left: 68px;
+}
+.item-seat span{
+  margin-right: 50px;
+}
+.seat-counter tbody tr:not(:first-child) td .item-seat .number{
+  visibility: hidden;
+}
+.select-btn{
+  margin-top: 20px;
+}
+.btn-custom{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.status{
+  vertical-align: middle;
+  margin: 10px;
+}

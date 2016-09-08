@@ -1,0 +1,72 @@
+<h3 class="text-center">Movie Seat Reservation</h3>
+<div class="col-md-12 text-center">
+    <form class="form-inline" name="form">
+        <input type="text" ng-model="userName" class="form-control" placeholder="Enter Your Name"required/>
+        <select class="form-control" ng-model="selectedQuantity" ng-options="count for count in quantities">
+            <option>Select</option>
+        </select>
+        <div class="clearfix"></div>
+         <button type="submit" class="btn btn-default select-btn" ng-click="startSelection(userName)">Start Selecting</button>
+    </form>
+</div>
+<div class="col-md-10 col-md-offset-1" style="margin-top:20px;">
+    <div class="alert alert-danger" role="alert" ng-show="showMessage">You have already selected the number of seats you have chosen</div>
+</div> 
+<div class="col-md-10 col-md-offset-1" ng-show="showSeatSelection">
+    <div class="table-responsive">
+        <table class="table seat-counter">
+            <h2 class="text-center screen">Screen</h2>
+            <tr ng-repeat="row in seats.result" class="row">
+                <td class="seat-row">
+                    <div class="item-seat" ng-repeat="seat in row">
+                        <div class="number">{{seat.val}}</div>
+                        <span ng-show="$first">{{seat.letter}}</span>
+                        <a ng-disabled="isDisabled" ng-class="{'selected':seat.check==true, 'available': seat.check==false,'booked':seat.seat==true}" ng-click="chooseSeat(seat)">{{seat.val}}</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button class="btn btn-default btn-custom center-block" ng-click="confirmSelection(userName, selectedQuantity, seats.result)">Confirm Selection</button>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+         <div class="alert alert-danger" role="alert" ng-show="showErrorMessage">
+        You have not selected any/or {{selectedQuantity - selectedSeatCount}} more seats
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="table-responsive" ng-show="showTableData" style="margin-top:20px;">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>No. of Seats</th>
+                        <th>Seats</th>
+                    </tr>
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{quantity}}</td>
+                        <td>
+                            <span  class="seat-number" ng-repeat="seats in seatSelectionObj">
+                                {{seats.letter}}{{seats.val}}&nbsp;
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12">
+            <a class="selected status"></a>
+            <span>Selected Seat</span>
+        </div>
+        <div class="col-md-12">
+            <a class="booked status"></a>
+            <span>Reserved Seat</span>
+        </div>
+        <div class="col-md-12">
+            <a class="available status"></a>
+            <span>Empty Seat</span>
+        </div>
+    </div>
+</div>
